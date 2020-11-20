@@ -2,7 +2,6 @@ package graph;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -14,7 +13,6 @@ public class GraphAlgorithms<K extends Comparable<K>,E> {
 		ArrayList<Vertex<K,E>> visitedNodes = new ArrayList<>();
 		
 		if(!graph.getGraph().isEmpty()) {
-			
 			queue.add(0);	
 			int index;
 			Vertex<K,E> current;
@@ -28,8 +26,10 @@ public class GraphAlgorithms<K extends Comparable<K>,E> {
 					isVisited[index]=true;
 				}
 				
-				for(int i=0; i<current.getAdjacents();i++) {
-					int indexTemp = current.getNeiborgIndex(i);
+				ArrayList<Vertex<K,E>> aux = graph.getAdjacents(current);
+				
+				for(int i=0; i<aux.size();i++) {
+					int indexTemp = aux.get(i).getIndex();
 					if(!isVisited[indexTemp])
 						queue.add(indexTemp);
 				}
