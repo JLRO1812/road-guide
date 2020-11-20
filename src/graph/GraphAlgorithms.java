@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.Stack;
 
 public class GraphAlgorithms<K extends Comparable<K>,E> {
 
@@ -32,6 +33,37 @@ public class GraphAlgorithms<K extends Comparable<K>,E> {
 					int indexTemp = aux.get(i).getIndex();
 					if(!isVisited[indexTemp])
 						queue.add(indexTemp);
+				}
+			}
+		}
+		return visitedNodes;
+	}
+
+	public ArrayList<Vertex<K,E>> DFS(IGraph<K,E> graph, Vertex<K,E> vertex) {
+		Stack<Integer> stack = new Stack<Integer>();
+		boolean[] isVisited = new boolean[graph.getGraph().size()];
+		ArrayList<Vertex<K,E>> visitedNodes = new ArrayList<>();
+		
+		if(!graph.getGraph().isEmpty()) {
+			stack.push(vertex.getIndex());	
+			int index;
+			Vertex<K,E> current;
+			while(!stack.isEmpty()) {
+				
+				index = stack.pop();
+				current = graph.getGraph().get(index);
+				
+				if(!isVisited[index]) {
+					visitedNodes.add(current);
+					isVisited[index]=true;
+				}
+				
+				ArrayList<Vertex<K,E>> aux = graph.getAdjacents(current);
+				
+				for(int i=aux.size()-1; i>=0;i--) {
+					int indexTemp = aux.get(i).getIndex();
+					if(!isVisited[indexTemp])
+						stack.push(indexTemp);
 				}
 			}
 		}

@@ -89,6 +89,25 @@ class AdjListGraphTest {
 	}
 	
 	@Test
+	void DFSTest() {
+		setup1();
+		ArrayList<Vertex<String,String>> aux = ga.DFS(adjl, adjl.getVertex("D"));
+		String reply = "";
+		for (int i = 0; i < aux.size(); i++) {
+			reply += aux.get(i).getKey() + "  ";
+		}
+		assertEquals("D  C  A  F  E  B  G", reply.trim());
+		
+		setup2();
+		aux = ga.DFS(adjl, adjl.getVertex("A"));
+		reply = "";
+		for (int i = 0; i < aux.size(); i++) {
+			reply += aux.get(i).getKey() + "  ";
+		}
+		assertEquals("A  C  B  E  D", reply.trim());
+	}
+	
+	@Test
 	void dijkstraTest() {
 		setup1();
 		ArrayList<String> list = (ArrayList<String>)ga.dijkstra(adjl, adjl.getVertex("D"), true);
