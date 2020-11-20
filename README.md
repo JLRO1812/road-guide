@@ -10,7 +10,7 @@ _**IN CONSTRUCTION**_ 🏗️🚧
 
 **ENGINEER'S METHOD:** _[HERE]()_
 
-**TAD'S:** _[HERE]()_
+**TAD'S:** _[HERE](https://github.com/JLRO1812/road-guide/blob/main/docs/TAD%20Graph.pdf)_
 
 # ABOUT THE PROGRAM 📩
 
