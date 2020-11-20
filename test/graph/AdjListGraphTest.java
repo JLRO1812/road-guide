@@ -72,7 +72,7 @@ class AdjListGraphTest {
 	@Test
 	void BFSTest() {
 		setup1();
-		ArrayList<Vertex<String,String>> aux = ga.BFS(adjl);
+		ArrayList<Vertex<String,String>> aux = ga.BFS(adjl, adjl.getVertex("A"));
 		String reply = "";
 		for (int i = 0; i < aux.size(); i++) {
 			reply += aux.get(i).getKey() + "  ";
@@ -80,7 +80,7 @@ class AdjListGraphTest {
 		assertEquals("A  C  D  F  E  B  G", reply.trim());
 		
 		setup2();
-		aux = ga.BFS(adjl);
+		aux = ga.BFS(adjl, adjl.getVertex("A"));
 		reply = "";
 		for (int i = 0; i < aux.size(); i++) {
 			reply += aux.get(i).getKey() + "  ";

@@ -7,13 +7,13 @@ import java.util.Queue;
 
 public class GraphAlgorithms<K extends Comparable<K>,E> {
 
-	public ArrayList<Vertex<K,E>> BFS(IGraph<K,E> graph) {
+	public ArrayList<Vertex<K,E>> BFS(IGraph<K,E> graph, Vertex<K,E> vertex) {
 		Queue<Integer> queue = new LinkedList<Integer>();
 		boolean[] isVisited = new boolean[graph.getGraph().size()];
 		ArrayList<Vertex<K,E>> visitedNodes = new ArrayList<>();
 		
 		if(!graph.getGraph().isEmpty()) {
-			queue.add(0);	
+			queue.add(vertex.getIndex());	
 			int index;
 			Vertex<K,E> current;
 			while(!queue.isEmpty()) {
