@@ -8,9 +8,9 @@ _**IN CONSTRUCTION**_ 🏗️🚧
 
 # Documentation📃
 
-**ENGINEER'S METHOD:** _[HERE]()_
+**ENGINEER'S METHOD:** _[HERE](https://github.com/JLRO1812/road-guide/blob/main/docs/RoadGuide-Metodo%20de%20Ingenieria%20.pdf)_
 
-**TAD'S:** _[HERE]()_
+**TAD'S:** _[HERE](https://github.com/JLRO1812/road-guide/blob/main/docs/TAD%20Graph.pdf)_
 
 # ABOUT THE PROGRAM 📩
 
