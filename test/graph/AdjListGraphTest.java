@@ -46,6 +46,22 @@ class AdjListGraphTest {
 		adjl.addEdge(adjl.getVertex("D"), adjl.getVertex("E"), 1);
 	}
 	
+	void setup3() {
+		adjl = new AdjListGraph<String, String>(false);
+		ga = new GraphAlgorithms<>();
+		adjl.addVertex(new Vertex<String, String>("A", "a"));
+		adjl.addVertex(new Vertex<String, String>("B", "b"));
+		adjl.addVertex(new Vertex<String, String>("C", "c"));
+		adjl.addVertex(new Vertex<String, String>("D", "d"));
+		adjl.addVertex(new Vertex<String, String>("E", "e"));
+		adjl.addEdge(adjl.getVertex("A"), adjl.getVertex("B"), 5);
+		adjl.addEdge(adjl.getVertex("A"), adjl.getVertex("E"), 10);
+		adjl.addEdge(adjl.getVertex("B"), adjl.getVertex("C"), 7);
+		adjl.addEdge(adjl.getVertex("B"), adjl.getVertex("E"), 4);
+		adjl.addEdge(adjl.getVertex("C"), adjl.getVertex("D"), 2);
+		adjl.addEdge(adjl.getVertex("D"), adjl.getVertex("E"), 1);
+	}
+	
 	@Test
 	void getWeigthMatrixTest() {
 		setup1();
@@ -138,6 +154,25 @@ class AdjListGraphTest {
 			reply += "[" + edge.get(i).getWeigth() + "] ";
 		}
 		assertEquals("[3.0] [0.0] [4.0] [6.0] [7.0]", reply.trim());
+	}
+	
+	@Test
+	void floydWarshall() {
+		setup3();
+		double[][] matrix = ga.floydWarshall(adjl);
+		String reply = "";
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix.length; j++) {
+				reply += matrix[i][j] + " ";
+			}
+			reply += "\n";
+		}
+		
+		assertEquals("0.0 5.0 12.0 10.0 9.0 \n"
+				+ "5.0 0.0 7.0 5.0 4.0 \n"
+				+ "12.0 7.0 0.0 2.0 3.0 \n"
+				+ "10.0 5.0 2.0 0.0 1.0 \n"
+				+ "9.0 4.0 3.0 1.0 0.0 \n", reply);
 	}
 	
 	private String generateMatrixText(double [][]matrix) {

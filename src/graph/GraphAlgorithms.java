@@ -120,4 +120,47 @@ public class GraphAlgorithms<K extends Comparable<K>,E> {
 		
 		return (travel)?C:L;
 	}
+	
+	public double[][] floydWarshall(IGraph<K,E> graph) {
+		int size = graph.getGraph().size();
+		double[][] matrix = new double[size][size];
+		
+		for(int i=0; i<size; i++) {
+			for(int j=0; j<size;j++) {
+				if(i!=j) {
+					matrix[i][j]=IGraph.INFINITE;
+				}else {
+					matrix[i][j]=0;
+				}
+			}
+		}
+		
+		for(int i=0; i<size; i++) {
+			Vertex<K,E> startingNode = graph.getGraph().get(i);
+			ArrayList<Edge> aux = graph.getEdges(startingNode);
+			for(int j=0; j<aux.size();j++) {
+				if(i!=aux.get(j).getIndex()) {
+					matrix[i][aux.get(j).getIndex()] = aux.get(j).getWeigth();
+				}
+			}
+		}
+		
+		for(int k=0; k<size; k++) {
+			for(int i=0; (i<size); i++) {
+				if(i!=k && matrix[i][k]<IGraph.INFINITE) {
+					for(int j=0; (j<size); j++) {
+						if(i!=j && matrix[k][j]<IGraph.INFINITE && j!=k) {
+							double alt = matrix[i][k] + matrix[k][j];
+							
+							if(alt < matrix[i][j]) {
+								matrix[i][j] = alt;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		return matrix;
+	}
 }

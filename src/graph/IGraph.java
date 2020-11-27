@@ -16,4 +16,5 @@ public interface IGraph <K extends Comparable<K>,E>{
 	public void deleteEdge(Vertex<K,E> u, Vertex<K,E> v);
 	public boolean isDirected(); 
 	public ArrayList<Vertex<K,E>> getAdjacents(Vertex<K,E> v);
+	public ArrayList<Edge> getEdges(Vertex<K,E> v);
 }

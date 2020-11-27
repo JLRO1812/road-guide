@@ -117,6 +117,11 @@ public class AdjListGraph<K extends Comparable<K>,E> implements IGraph<K, E>{
 		}
 		return adjacents;
 	}
+	
+	@Override
+	public ArrayList<Edge> getEdges(Vertex<K,E> v) {
+		return adjList.get(v.getIndex());
+	}
 
 	@Override
 	public boolean isDirected() {
