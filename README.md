@@ -12,6 +12,8 @@ _**IN CONSTRUCTION**_ 🏗️🚧
 
 **TAD'S:** _[HERE](https://github.com/JLRO1812/road-guide/blob/main/docs/TAD%20Graph.pdf)_
 
+**GRAPH DIAGRAM CLASS:** _[HERE](https://github.com/JLRO1812/road-guide/blob/main/docs/Graph%20Diagram%20Class.pdf)_
+
 # ABOUT THE PROGRAM 📩
 
 - _Language:_ Java 8.
