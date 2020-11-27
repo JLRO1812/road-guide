@@ -157,7 +157,7 @@ class AdjListGraphTest {
 	}
 	
 	@Test
-	void floydWarshall() {
+	void floydWarshallTest() {
 		setup3();
 		double[][] matrix = ga.floydWarshall(adjl);
 		String reply = "";
@@ -184,5 +184,38 @@ class AdjListGraphTest {
 			text+="\n";
 		}
 		return text;
+	}
+	
+	@Test
+	void kruskalTest() {
+		setup3();
+		ArrayList<ArrayList<Edge>> aux = ga.kruskal(adjl);
+		String reply = "";
+		for (int i = 0; i < aux.size(); i++) {
+			for (int j = 0; j < aux.get(i).size(); j++) {
+				reply += adjl.getGraph().get(i).getElement() + "->" + adjl.getGraph().get(aux.get(i).get(j).getIndex()).getElement() + "||";
+			}
+			reply += "\n";
+		}
+		assertEquals("a->b||\n"
+				+ "b->e||b->a||\n"
+				+ "c->d||\n"
+				+ "d->e||d->c||\n"
+				+ "e->d||e->b||\n", reply);
+		
+		setup2();
+		aux = ga.kruskal(adjl);
+		reply = "";
+		for (int i = 0; i < aux.size(); i++) {
+			for (int j = 0; j < aux.get(i).size(); j++) {
+				reply += adjl.getGraph().get(i).getElement() + "->" + adjl.getGraph().get(aux.get(i).get(j).getIndex()).getElement() + "||";
+			}
+			reply += "\n";
+		}
+		assertEquals("a->c||a->b||\n"
+				+ "b->a||\n"
+				+ "c->a||c->d||\n"
+				+ "d->e||d->c||\n"
+				+ "e->d||\n", reply);
 	}
 }

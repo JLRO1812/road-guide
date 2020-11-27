@@ -12,6 +12,12 @@ public class AdjListGraph<K extends Comparable<K>,E> implements IGraph<K, E>{
 		graph = new ArrayList<Vertex<K,E>>(); 
 		adjList = new ArrayList<ArrayList<Edge>>(); 
 	}
+	
+	public AdjListGraph(ArrayList<Vertex<K, E>> graph, ArrayList<ArrayList<Edge>> adjList, boolean direct) {
+		this.graph = graph;
+		this.adjList = adjList;
+		this.direct = direct;
+	}
 
 	@Override
 	public double[][] getWeigthMatrix() {

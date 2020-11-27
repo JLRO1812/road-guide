@@ -10,6 +10,11 @@ public class Edge implements Comparable<Edge>{
 		this.index = index;
 	}
 	
+	public Edge(double weigth, int index, int indexUser) {
+		this.weigth = weigth;
+		this.index = index;
+	}
+	
 	public double getWeigth() {
 		return weigth;
 	}
