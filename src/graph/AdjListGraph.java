@@ -12,12 +12,6 @@ public class AdjListGraph<K extends Comparable<K>,E> implements IGraph<K, E>{
 		graph = new ArrayList<Vertex<K,E>>(); 
 		adjList = new ArrayList<ArrayList<Edge>>(); 
 	}
-	
-	public AdjListGraph(ArrayList<Vertex<K, E>> graph, ArrayList<ArrayList<Edge>> adjList, boolean direct) {
-		this.graph = graph;
-		this.adjList = adjList;
-		this.direct = direct;
-	}
 
 	@Override
 	public double[][] getWeigthMatrix() {
@@ -143,5 +137,27 @@ public class AdjListGraph<K extends Comparable<K>,E> implements IGraph<K, E>{
 		for (int i = index; i<graph.size(); i++) {
 			graph.get(i).setIndex(i);
 		}
+	}
+
+	@Override
+	public ArrayList<Double> getWeightAdjList(Vertex<K,E> v){
+		
+		ArrayList<Double> adjacents = new ArrayList<Double>();
+		ArrayList<Edge> array=adjList.get(v.getIndex());
+
+		for (int i = 0; i < adjList.get(v.getIndex()).size(); i++) {
+			Double value=Double.valueOf(array.get(i).getWeigth());
+			adjacents.add(value);
+		}
+		return adjacents;
+	}
+	
+	public int searchIndex(K key) {
+		for (int i = 0; i < graph.size(); i++) {
+			if(key.equals(graph.get(i).getKey())) {
+				return graph.get(i).getIndex();
+			}
+		}
+	return 0;
 	}
 }
