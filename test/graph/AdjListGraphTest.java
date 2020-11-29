@@ -62,6 +62,58 @@ class AdjListGraphTest {
 		adjl.addEdge(adjl.getVertex("D"), adjl.getVertex("E"), 1);
 	}
 	
+	void setup4() {
+		adjl = new AdjListGraph<>(false);
+		ga = new GraphAlgorithms<>();
+		adjl.addVertex(new Vertex<String, String>("A", "a"));
+		adjl.addVertex(new Vertex<String, String>("B", "b"));
+		adjl.addVertex(new Vertex<String, String>("C", "c"));
+		adjl.addVertex(new Vertex<String, String>("D", "d"));
+		adjl.addVertex(new Vertex<String, String>("E", "e"));
+		adjl.addVertex(new Vertex<String, String>("F", "f"));
+
+		adjl.addEdge(adjl.getVertex("A"), adjl.getVertex("B"), 8);
+		adjl.addEdge(adjl.getVertex("A"), adjl.getVertex("C"), 9);
+		adjl.addEdge(adjl.getVertex("A"), adjl.getVertex("D"), 7);
+		adjl.addEdge(adjl.getVertex("B"), adjl.getVertex("C"), 11);
+		adjl.addEdge(adjl.getVertex("B"), adjl.getVertex("E"), 3);
+		adjl.addEdge(adjl.getVertex("C"), adjl.getVertex("E"), 2);
+		adjl.addEdge(adjl.getVertex("C"), adjl.getVertex("F"), 4);
+		adjl.addEdge(adjl.getVertex("C"), adjl.getVertex("D"), 12);
+		adjl.addEdge(adjl.getVertex("D"), adjl.getVertex("F"), 5);
+		adjl.addEdge(adjl.getVertex("E"), adjl.getVertex("F"), 10);
+
+		
+	}
+	
+	void setup5() {
+		adjl = new AdjListGraph<>(false);
+		ga = new GraphAlgorithms<>();
+		adjl.addVertex(new Vertex<String, String>("A", "a"));
+		adjl.addVertex(new Vertex<String, String>("B", "b"));
+		adjl.addVertex(new Vertex<String, String>("C", "c"));
+		adjl.addVertex(new Vertex<String, String>("D", "d"));
+		adjl.addVertex(new Vertex<String, String>("E", "e"));
+		
+		adjl.addEdge(adjl.getVertex("A"), adjl.getVertex("D"), 5);
+		adjl.addEdge(adjl.getVertex("B"), adjl.getVertex("C"), 5);
+		adjl.addEdge(adjl.getVertex("B"), adjl.getVertex("D"), 3);
+		adjl.addEdge(adjl.getVertex("C"), adjl.getVertex("D"), 10);
+		adjl.addEdge(adjl.getVertex("D"), adjl.getVertex("E"), 2);
+	}
+	
+	@Test 
+	void primTest() {
+		setup4();
+		//setup2();
+		Vertex<String,String> v= new Vertex<String, String>("A", "a");
+		ArrayList<String> s=ga.prim(adjl, v);
+		for(int i=0;i<s.size();i++) {
+			System.out.println(s.get(i));
+		}
+		
+	}
+	
 	@Test
 	void getWeigthMatrixTest() {
 		setup1();

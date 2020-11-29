@@ -88,4 +88,16 @@ public class AdjMatrixGraph<K extends Comparable<K>,E> implements IGraph<K,E>{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public ArrayList<Double> getWeightAdjList(Vertex<K, E> v) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int searchIndex(K key) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
