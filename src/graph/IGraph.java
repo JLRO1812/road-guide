@@ -17,6 +17,4 @@ public interface IGraph <K extends Comparable<K>,E>{
 	public boolean isDirected(); 
 	public ArrayList<Vertex<K,E>> getAdjacents(Vertex<K,E> v);
 	public ArrayList<Edge> getEdges(Vertex<K,E> v);
-	public ArrayList<Double> getWeightAdjList(Vertex<K,E> v);
-	public int searchIndex(K key) ;
 }
