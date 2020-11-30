@@ -8,11 +8,38 @@ _**IN CONSTRUCTION**_ 🏗️🚧
 
 # Documentation📃
 
+**TAD:** _[HERE](https://github.com/JLRO1812/road-guide/blob/main/docs/TAD%20Graph.pdf)_
+
 **ENGINEER'S METHOD:** _[HERE](https://github.com/JLRO1812/road-guide/blob/main/docs/RoadGuide-Metodo%20de%20Ingenieria%20.pdf)_
 
-**TAD'S:** _[HERE](https://github.com/JLRO1812/road-guide/blob/main/docs/TAD%20Graph.pdf)_
-
 **GRAPH DIAGRAM CLASS:** _[HERE](https://github.com/JLRO1812/road-guide/blob/main/docs/Graph%20Diagram%20Class.pdf)_
+
+**CONSTRUCTION OF SCENARIOS AND DESIGN OF TEST CASES:** _[HERE](https://github.com/JLRO1812/road-guide/blob/main/docs/PRUEBAS.pdf)_
+
+# Changelog
+
+### [1.0.0] - 2020-11-26
+### Added
+- FloydWarshall Implementation and their respective tests
+- Kruskal implementation and their respective tests
+
+### Changed
+- Class diagram has been changed
+- README has been update
+
+### [2.0.0] - 2020-11-28
+### Added
+- Prim Implementation
+
+### [3.0.0] - 2020-11-29
+
+### Added
+- Design of test cases have been added
+- Implemented tests of the prim algorithm
+
+### Changed
+- Error correction with prim and kruskal method
+- TAD was updated
 
 # ABOUT THE PROGRAM 📩
 
