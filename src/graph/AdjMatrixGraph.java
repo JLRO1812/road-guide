@@ -2,6 +2,8 @@ package graph;
 
 import java.util.ArrayList;
 
+import interfaces.IGraph;
+
 public class AdjMatrixGraph<K extends Comparable<K>,E> implements IGraph<K,E>{
 
 	private static int MAX_AMOUNT = 1000;

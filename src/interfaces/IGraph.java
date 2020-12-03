@@ -1,6 +1,9 @@
-package graph;
+package interfaces;
 
 import java.util.ArrayList;
+
+import graph.Edge;
+import graph.Vertex;
 public interface IGraph <K extends Comparable<K>,E>{
 	
 	public static final double INFINITE = Double.POSITIVE_INFINITY;

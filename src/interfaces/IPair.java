@@ -1,5 +1,6 @@
-package graph;
+package interfaces;
 
+import structures.Pair;
 
 public interface IPair <K,V>{
 

@@ -106,7 +106,7 @@ class AdjListGraphTest {
 	void primTest() {
 		setup4();
 		//setup2();
-		Vertex<String,String> v= new Vertex<String, String>("A", "a");
+		Vertex<String,String> v= new Vertex<String, String>("B", "b");
 		ArrayList<String> s=ga.prim(adjl, v);
 		for(int i=0;i<s.size();i++) {
 			System.out.println(s.get(i));

@@ -6,6 +6,10 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Stack;
 
+import interfaces.IGraph;
+import structures.BinarySearchTree;
+import structures.Pair;
+
 public class GraphAlgorithms<K extends Comparable<K>,E> {
 
 	public ArrayList<Vertex<K,E>> BFS(IGraph<K,E> graph, Vertex<K,E> vertex) {
@@ -248,21 +252,26 @@ public class GraphAlgorithms<K extends Comparable<K>,E> {
 			PriorityQueue<Pair<K,Double>> pq= new PriorityQueue<Pair<K,Double>>();
 			ArrayList<Vertex<K,E>> adjList=graph.getAdjacents(aux);
 			ArrayList<Double> weight=graph.getWeightAdjList(aux);
-			
-			for(int i=0; i<adjList.size(); i++) {	
-				pq.add(new Pair<K, Double>(adjList.get(i).getKey(),weight.get(i)));
-			}
-			
+				for(int i=0; i<adjList.size(); i++) {	
+					pq.add(new Pair<K, Double>(adjList.get(i).getKey(),weight.get(i)));
+				}
+				
+		int jump=1;
 		boolean found=false;
 		while(!pq.isEmpty() && !found) {
 			Pair<K, Double>aux2= pq.poll();
-			if(!checkKeys(taken, aux2.getKey())){
+			boolean checkKeys=checkKeys(taken, aux2.getKey());
+			System.out.println(aux2.getKey()+" was polled from " + aux.getKey()+" and it has "+ checkKeys);
+			if(!checkKeys){
+				//System.out.println("normal key "+ aux.getKey() +" "+  aux2.getKey());
 				K key=(K) aux2.getKey();
 				Double value= (Double)aux2.getValue();
 				tree.insert(key, value);
 				list.add(aux.getKey()+" -"+value.intValue()+"-> "+aux2.getKey());
+				
 				if(graph.getAdjacents(graph.getVertex(key)).size()>1) {
 					aux=graph.getVertex(key);
+					System.out.println(taken);
 				}else {
 					key=(K)taken.get(taken.size()-1);
 					aux=graph.getVertex(key);

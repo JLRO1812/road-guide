@@ -2,6 +2,8 @@ package graph;
 
 import java.util.ArrayList;
 
+import interfaces.IGraph;
+
 public class AdjListGraph<K extends Comparable<K>,E> implements IGraph<K, E>{
 	private ArrayList<Vertex<K,E>> graph;
 	private ArrayList<ArrayList<Edge>> adjList;

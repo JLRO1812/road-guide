@@ -1,5 +1,6 @@
-package graph;
+package structures;
 
+import interfaces.IPair;
 
 public class Pair <K, V extends Comparable<V>> implements IPair<K,V>, Comparable <Pair> {
 		private K key;
