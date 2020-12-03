@@ -102,17 +102,6 @@ class AdjListGraphTest {
 		adjl.addEdge(adjl.getVertex("D"), adjl.getVertex("E"), 2);
 	}
 	
-	@Test 
-	void primTest() {
-		setup4();
-		//setup2();
-		Vertex<String,String> v= new Vertex<String, String>("B", "b");
-		ArrayList<String> s=ga.prim(adjl, v);
-		for(int i=0;i<s.size();i++) {
-			System.out.println(s.get(i));
-		}
-		
-	}
 	
 	@Test
 	void getWeigthMatrixTest() {
@@ -236,6 +225,34 @@ class AdjListGraphTest {
 			text+="\n";
 		}
 		return text;
+	}
+	
+	@Test 
+	void primTest() {
+		setup4();
+		Vertex<String,String> v= new Vertex<String, String>("A", "a");
+		ArrayList<String> s=ga.prim(adjl, v);
+		assertEquals(s.get(0),"A -7-> D");
+		assertEquals(s.get(1),"D -5-> F");
+		assertEquals(s.get(2),"F -4-> C");
+		assertEquals(s.get(3),"C -2-> E");
+		assertEquals(s.get(4),"E -3-> B");
+		
+		v= new Vertex<String, String>("C", "c");
+		s=ga.prim(adjl, v);
+		assertEquals(s.get(0),"C -2-> E");
+		assertEquals(s.get(1),"E -3-> B");
+		assertEquals(s.get(2),"B -8-> A");
+		assertEquals(s.get(3),"A -7-> D");
+		assertEquals(s.get(4),"D -5-> F");
+		
+		setup5();
+		v= new Vertex<String, String>("A", "a");
+		s=ga.prim(adjl, v);
+		assertEquals(s.get(0),"A -5-> D");
+		assertEquals(s.get(1),"D -2-> E");
+		assertEquals(s.get(2),"D -3-> B");
+		assertEquals(s.get(3),"B -5-> C");
 	}
 	
 	@Test
