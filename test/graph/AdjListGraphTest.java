@@ -231,7 +231,8 @@ class AdjListGraphTest {
 	void primTest() {
 		setup4();
 		Vertex<String,String> v= new Vertex<String, String>("A", "a");
-		ArrayList<String> s=ga.prim(adjl, v);
+		ga.prim(adjl, v);
+		ArrayList<String> s=ga.getList();
 		assertEquals(s.get(0),"A -7-> D");
 		assertEquals(s.get(1),"D -5-> F");
 		assertEquals(s.get(2),"F -4-> C");
@@ -239,7 +240,8 @@ class AdjListGraphTest {
 		assertEquals(s.get(4),"E -3-> B");
 		
 		v= new Vertex<String, String>("C", "c");
-		s=ga.prim(adjl, v);
+		ga.prim(adjl, v);
+		s=ga.getList();
 		
 		assertEquals(s.get(0),"C -2-> E");
 		assertEquals(s.get(1),"E -3-> B");
@@ -249,7 +251,8 @@ class AdjListGraphTest {
 
 		setup5();
 		v= new Vertex<String, String>("A", "a");
-		s=ga.prim(adjl, v);
+		ga.prim(adjl, v);
+		s=ga.getList();
 		assertEquals(s.get(0),"A -5-> D");
 		assertEquals(s.get(1),"D -2-> E");
 		assertEquals(s.get(2),"D -3-> B");
@@ -257,7 +260,8 @@ class AdjListGraphTest {
 		
 		setup5();
 		v= new Vertex<String, String>("D", "d");
-		s=ga.prim(adjl, v);
+		ga.prim(adjl, v);
+		s=ga.getList();
 		assertEquals(s.get(0),"D -2-> E");
 		assertEquals(s.get(1),"D -3-> B");
 		assertEquals(s.get(2),"B -5-> C");
@@ -265,12 +269,21 @@ class AdjListGraphTest {
 		
 		setup5();
 		v= new Vertex<String, String>("B", "b");
-		s=ga.prim(adjl, v);
+		ga.prim(adjl, v);
+		s=ga.getList();
 		assertEquals(s.get(0),"B -3-> D");
 		assertEquals(s.get(1),"D -2-> E");
 		assertEquals(s.get(2),"D -5-> A");
 		assertEquals(s.get(3),"D -10-> C");
-
+		
+		setup5();
+		v= new Vertex<String, String>("E", "e");
+		ga.prim(adjl, v);
+		s=ga.getList();
+		assertEquals(s.get(0),"E -2-> D");
+		assertEquals(s.get(1),"D -3-> B");
+		assertEquals(s.get(2),"B -5-> C");
+		assertEquals(s.get(3),"D -5-> A");
 	}
 	
 	@Test

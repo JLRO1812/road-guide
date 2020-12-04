@@ -7,10 +7,16 @@ import java.util.Queue;
 import java.util.Stack;
 
 import interfaces.IGraph;
+import model.Pair;
 import structures.BinarySearchTree;
-import structures.Pair;
 
 public class GraphAlgorithms<K extends Comparable<K>,E> {
+	
+	public ArrayList <String> list;
+	
+	public GraphAlgorithms() {
+		
+	}
 
 	public ArrayList<Vertex<K,E>> BFS(IGraph<K,E> graph, Vertex<K,E> vertex) {
 		Queue<Integer> queue = new LinkedList<Integer>();
@@ -239,51 +245,44 @@ public class GraphAlgorithms<K extends Comparable<K>,E> {
 		return reply;
 	}
 
-	public ArrayList<String> prim(IGraph<K,E> graph, Vertex<K,E> root){
-		BinarySearchTree <K,Double> tree= new BinarySearchTree <K,Double>();
+	public IGraph <K, E> prim(IGraph<K,E> graph, Vertex<K,E> root){
+		list=new ArrayList<String>();
 		ArrayList <Vertex<K,E>> vertexList=graph.getGraph();
-		ArrayList <String> list=new ArrayList<String>();
+		IGraph<K,E> primGraph= new AdjListGraph<K,E>(true);
 		ArrayList <Object> taken = new ArrayList<Object>();
-		tree.insert(root.getKey(), Double.valueOf(vertexList.size()));
 		Vertex<K,E> aux=root;
 		root.setIndex(graph.searchIndex(root.getKey()));
 		taken.add(root.getKey());
 		int jump=1;
-		while(vertexList.size()!=taken.size()) {
-			PriorityQueue<Pair<K,Double>> pq= new PriorityQueue<Pair<K,Double>>();
-			ArrayList<Vertex<K,E>> adjList=graph.getAdjacents(aux);
-			ArrayList<Double> weight=graph.getWeightAdjList(aux);
-				for(int i=0; i<adjList.size(); i++) {	
-					pq.add(new Pair<K, Double>(adjList.get(i).getKey(),weight.get(i)));
-				}
-		int index=0;
-		int sizepq=pq.size();
+		
+		for (int i = 0; i < vertexList.size(); i++) {
+			primGraph.addVertex(vertexList.get(i));
+		}
+		
+	while(vertexList.size()!=taken.size()) {
+		PriorityQueue<Pair<K,Double>> pq= new PriorityQueue<Pair<K,Double>>();
+		ArrayList<Vertex<K,E>> adjList=graph.getAdjacents(aux);
+		ArrayList<Double> weight=graph.getWeightAdjList(aux);
 		boolean found=false;
-		while(index<sizepq && !found) {
-			Pair<K, Double>aux2= pq.poll();
-			if(!checkKeys(taken, aux2.getKey())){
-				jump=1;
-				tree.insert((K)aux2.getKey(), (Double)aux2.getValue());
-				list.add(aux.getKey()+" -"+((Double)aux2.getValue()).intValue()+"-> "+aux2.getKey());
-				
-				if(graph.getAdjacents(graph.getVertex((K)aux2.getKey())).size()>1) {
-					aux=graph.getVertex((K)aux2.getKey());
-				}else {
-					aux=graph.getVertex((K)taken.get(taken.size()-1));
+		
+		for(int i=0; i<adjList.size(); i++) {	
+			pq.add(new Pair<K, Double>(adjList.get(i).getKey(),weight.get(i)));
+		}
+			while(!pq.isEmpty() && !found) {
+				Pair<K, Double>aux2= pq.poll();
+				if(!checkKeys(taken, aux2.getKey())){
+					jump=1;
+					primGraph.addEdge( graph.getVertex(aux.getKey()), graph.getVertex(aux2.getKey()), aux2.getValue().doubleValue());
+					list.add(aux.getKey()+" -"+((Double)aux2.getValue()).intValue()+"-> "+aux2.getKey());
+					aux= (graph.getAdjacents(graph.getVertex((K)aux2.getKey())).size()>1) ? graph.getVertex((K)aux2.getKey()):graph.getVertex((K)taken.get(taken.size()-1));
+					taken.add(aux2.getKey());
+					found=true;
 				}
-				taken.add(aux2.getKey());
-				found=true;
-			}else {
-				index++;
-			}
-		}	
-			if(found==false) {
-				jump++;
-				aux=graph.getVertex((K)taken.get(taken.size()-jump));
-			}
+			}	
+			aux=(found==false)? graph.getVertex((K)taken.get(taken.size()-jump++)): aux;
 		}
 
-		return list;
+		return primGraph;
 	}
 	
 	private boolean checkKeys(ArrayList<Object> keys, Object key) {
@@ -293,6 +292,10 @@ public class GraphAlgorithms<K extends Comparable<K>,E> {
 				return true;		
 		}
 		return found;
+	}
+	
+	public ArrayList<String> getList(){
+		return list;
 	}
 
 }

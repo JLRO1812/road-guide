@@ -15,6 +15,13 @@ public class AdjListGraph<K extends Comparable<K>,E> implements IGraph<K, E>{
 		adjList = new ArrayList<ArrayList<Edge>>(); 
 	}
 	
+	public AdjListGraph(ArrayList<Vertex<K, E>> graph,boolean direct) {
+		this.graph = graph;
+		this.direct = direct;
+		adjList = new ArrayList<ArrayList<Edge>>(); 
+	}
+
+	
 	public AdjListGraph(ArrayList<Vertex<K, E>> graph, ArrayList<ArrayList<Edge>> adjList, boolean direct) {
 		this.graph = graph;
 		this.adjList = adjList;

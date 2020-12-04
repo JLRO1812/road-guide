@@ -1,6 +1,6 @@
 package interfaces;
 
-import structures.Pair;
+import model.Pair;
 
 public interface IPair <K,V>{
 
