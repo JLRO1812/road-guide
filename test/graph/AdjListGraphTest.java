@@ -240,12 +240,13 @@ class AdjListGraphTest {
 		
 		v= new Vertex<String, String>("C", "c");
 		s=ga.prim(adjl, v);
+		
 		assertEquals(s.get(0),"C -2-> E");
 		assertEquals(s.get(1),"E -3-> B");
 		assertEquals(s.get(2),"B -8-> A");
 		assertEquals(s.get(3),"A -7-> D");
 		assertEquals(s.get(4),"D -5-> F");
-		
+
 		setup5();
 		v= new Vertex<String, String>("A", "a");
 		s=ga.prim(adjl, v);
@@ -253,6 +254,23 @@ class AdjListGraphTest {
 		assertEquals(s.get(1),"D -2-> E");
 		assertEquals(s.get(2),"D -3-> B");
 		assertEquals(s.get(3),"B -5-> C");
+		
+		setup5();
+		v= new Vertex<String, String>("D", "d");
+		s=ga.prim(adjl, v);
+		assertEquals(s.get(0),"D -2-> E");
+		assertEquals(s.get(1),"D -3-> B");
+		assertEquals(s.get(2),"B -5-> C");
+		assertEquals(s.get(3),"D -5-> A");
+		
+		setup5();
+		v= new Vertex<String, String>("B", "b");
+		s=ga.prim(adjl, v);
+		assertEquals(s.get(0),"B -3-> D");
+		assertEquals(s.get(1),"D -2-> E");
+		assertEquals(s.get(2),"D -5-> A");
+		assertEquals(s.get(3),"D -10-> C");
+
 	}
 	
 	@Test

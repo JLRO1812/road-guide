@@ -248,6 +248,7 @@ public class GraphAlgorithms<K extends Comparable<K>,E> {
 		Vertex<K,E> aux=root;
 		root.setIndex(graph.searchIndex(root.getKey()));
 		taken.add(root.getKey());
+		int jump=1;
 		while(vertexList.size()!=taken.size()) {
 			PriorityQueue<Pair<K,Double>> pq= new PriorityQueue<Pair<K,Double>>();
 			ArrayList<Vertex<K,E>> adjList=graph.getAdjacents(aux);
@@ -255,32 +256,33 @@ public class GraphAlgorithms<K extends Comparable<K>,E> {
 				for(int i=0; i<adjList.size(); i++) {	
 					pq.add(new Pair<K, Double>(adjList.get(i).getKey(),weight.get(i)));
 				}
-				
-		int jump=1;
+		int index=0;
+		int sizepq=pq.size();
 		boolean found=false;
-		while(!pq.isEmpty() && !found) {
+		while(index<sizepq && !found) {
 			Pair<K, Double>aux2= pq.poll();
-			boolean checkKeys=checkKeys(taken, aux2.getKey());
-			System.out.println(aux2.getKey()+" was polled from " + aux.getKey()+" and it has "+ checkKeys);
-			if(!checkKeys){
-				//System.out.println("normal key "+ aux.getKey() +" "+  aux2.getKey());
-				K key=(K) aux2.getKey();
-				Double value= (Double)aux2.getValue();
-				tree.insert(key, value);
-				list.add(aux.getKey()+" -"+value.intValue()+"-> "+aux2.getKey());
+			if(!checkKeys(taken, aux2.getKey())){
+				jump=1;
+				tree.insert((K)aux2.getKey(), (Double)aux2.getValue());
+				list.add(aux.getKey()+" -"+((Double)aux2.getValue()).intValue()+"-> "+aux2.getKey());
 				
-				if(graph.getAdjacents(graph.getVertex(key)).size()>1) {
-					aux=graph.getVertex(key);
-					System.out.println(taken);
+				if(graph.getAdjacents(graph.getVertex((K)aux2.getKey())).size()>1) {
+					aux=graph.getVertex((K)aux2.getKey());
 				}else {
-					key=(K)taken.get(taken.size()-1);
-					aux=graph.getVertex(key);
+					aux=graph.getVertex((K)taken.get(taken.size()-1));
 				}
 				taken.add(aux2.getKey());
 				found=true;
+			}else {
+				index++;
 			}
 		}	
+			if(found==false) {
+				jump++;
+				aux=graph.getVertex((K)taken.get(taken.size()-jump));
+			}
 		}
+
 		return list;
 	}
 	

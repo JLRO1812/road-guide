@@ -9,7 +9,7 @@ public class AdjListGraph<K extends Comparable<K>,E> implements IGraph<K, E>{
 	private ArrayList<ArrayList<Edge>> adjList;
 	private boolean direct;
 
-	AdjListGraph(boolean direct){
+	public AdjListGraph(boolean direct){
 		this.direct = direct;
 		graph = new ArrayList<Vertex<K,E>>(); 
 		adjList = new ArrayList<ArrayList<Edge>>(); 
