@@ -20,7 +20,6 @@ public class AdjListGraph<K extends Comparable<K>,E> implements IGraph<K, E>{
 		this.direct = direct;
 		adjList = new ArrayList<ArrayList<Edge>>(); 
 	}
-
 	
 	public AdjListGraph(ArrayList<Vertex<K, E>> graph, ArrayList<ArrayList<Edge>> adjList, boolean direct) {
 		this.graph = graph;
@@ -174,6 +173,17 @@ public class AdjListGraph<K extends Comparable<K>,E> implements IGraph<K, E>{
 				return graph.get(i).getIndex();
 			}
 		}
-	return 0;
+		return 0;
+	}
+	
+	@Override
+	public ArrayList<String> showGraph(){
+		ArrayList<String> reply = new ArrayList<String>();
+		System.out.println(graph.size());
+		for (int i = 0; i < graph.size(); i++) {
+			reply.add(graph.get(i).getElement().toString());
+			System.out.println(graph.get(i).getElement().toString());
+		}
+		return reply;
 	}
 }

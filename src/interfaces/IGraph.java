@@ -22,4 +22,5 @@ public interface IGraph <K extends Comparable<K>,E>{
 	public ArrayList<Edge> getEdges(Vertex<K,E> v);
 	public ArrayList<Double> getWeightAdjList(Vertex<K,E> v);
 	public int searchIndex(K key) ;
+	public ArrayList<String> showGraph();
 }
