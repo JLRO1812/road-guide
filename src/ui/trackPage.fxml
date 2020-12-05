@@ -26,9 +26,9 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="198.0" layoutY="69.0" text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
-            <Label layoutX="198.0" layoutY="110.0" text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
-            <Label layoutX="198.0" layoutY="150.0" text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
+            <Label fx:id="rutaCorta" layoutX="198.0" layoutY="69.0" text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
+            <Label fx:id="distanciaTotal" layoutX="198.0" layoutY="110.0" text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
+            <Label fx:id="numeroPeajes" layoutX="198.0" layoutY="150.0" text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
             <ImageView fitHeight="50.0" fitWidth="424.0" layoutX="24.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="58.0" fitWidth="252.0" layoutX="121.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>

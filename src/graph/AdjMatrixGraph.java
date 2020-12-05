@@ -102,4 +102,10 @@ public class AdjMatrixGraph<K extends Comparable<K>,E> implements IGraph<K,E>{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public ArrayList<String> showGraph() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -27,9 +27,9 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <ChoiceBox layoutX="134.0" layoutY="155.0" prefWidth="150.0" />
-      <ChoiceBox layoutX="134.0" layoutY="234.0" prefWidth="150.0" />
-      <Button layoutX="336.0" layoutY="183.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="91.0" text="Consultar" />
+      <ChoiceBox fx:id="origenChoiceBox" layoutX="134.0" layoutY="155.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="destinoChoiceBox" layoutX="134.0" layoutY="234.0" prefWidth="150.0" />
+      <Button layoutX="336.0" layoutY="183.0" mnemonicParsing="false" onAction="#consult" prefHeight="31.0" prefWidth="91.0" text="Consultar" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="62.0" layoutX="33.0" layoutY="206.0" stroke="BLACK" strokeType="INSIDE" width="74.0" />
       <ImageView fitHeight="56.0" fitWidth="74.0" layoutX="36.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
          <image>

@@ -1,1 +1,1 @@
-Bogota,Cali,Cucuta,Medellin,Pasto,Santa Marta
+bogota,cali,cucuta,medellin,pasto,santa marta
