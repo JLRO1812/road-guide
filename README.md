@@ -2,9 +2,9 @@
 
 When you want to travel by car from one city to another in Colombia, in the shortest time and cost possible, it is important to review aspects such as distance, tolls and road conditions to make a decision on the route to use for the trip. Therefore, with the purpose of saving time and effort for people who want to travel to the main cities of Colombia, this software has been created with the ability to calculate the shortest distance or lowest price route to go from one city to another. .
 
-# USE MANUAL📚
+# Video🎥
 
-_**IN CONSTRUCTION**_ 🏗️🚧
+[ROADGUIDE video]()
 
 # Documentation📃
 
@@ -18,30 +18,6 @@ _**IN CONSTRUCTION**_ 🏗️🚧
 
 **CONSTRUCTION OF SCENARIOS AND DESIGN OF TEST CASES:** _[HERE](https://github.com/JLRO1812/road-guide/blob/main/docs/PRUEBAS.pdf)_
 
-# Changelog
-
-### [1.0.0] - 2020-11-26
-### Added
-- FloydWarshall Implementation and their respective tests
-- Kruskal implementation and their respective tests
-
-### Changed
-- Class diagram has been changed
-- README has been update
-
-### [2.0.0] - 2020-11-28
-### Added
-- Prim Implementation
-
-### [3.0.0] - 2020-11-29
-
-### Added
-- Design of test cases have been added
-- Implemented tests of the prim algorithm
-
-### Changed
-- Error correction with prim and kruskal method
-- TAD was updated
 
 # ABOUT THE PROGRAM 📩
 
