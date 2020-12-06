@@ -14,6 +14,8 @@ _**IN CONSTRUCTION**_ 🏗️🚧
 
 **GRAPH DIAGRAM CLASS:** _[HERE](https://github.com/JLRO1812/road-guide/blob/main/docs/Graph%20Diagram%20Class.pdf)_
 
+**CLASS DIAGRAM ROADGUIDE:** _[HERE](https://github.com/JLRO1812/road-guide/blob/main/docs/Road%20Guide%20Class%20Diagram.pdf)_
+
 **CONSTRUCTION OF SCENARIOS AND DESIGN OF TEST CASES:** _[HERE](https://github.com/JLRO1812/road-guide/blob/main/docs/PRUEBAS.pdf)_
 
 # Changelog
